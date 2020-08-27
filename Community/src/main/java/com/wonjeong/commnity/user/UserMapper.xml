@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wonjeong.commnity.user.UserMapper"> 
+	
+	<insert id="join" parameterType="UserVO">
+		INSERT INTO t_user
+			(cid, cpw, salt, nm)
+		VALUES
+			(#{cid}, #{cpw}, #{salt}, #{nm})
+	</insert>
+	
+	<select id="chkId" parameterType="String" resultType="int">
+		SELECT count(cid) FROM t_user
+		WHERE cid = #{cid}
+	</select>
+</mapper>
